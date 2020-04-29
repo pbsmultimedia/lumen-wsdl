@@ -14,5 +14,15 @@
 */
 
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+    return phpinfo();
+});
+
+$router->get('db', function () {
+    #$results = DB::select("SELECT TOP 100 * FROM TABLE_NAME_HERE");
+    #return dd($results);
+});
+
+$router->group(['prefix' => 'protected'], function () use ($router) {
+    $router->get('{service}', ['uses' =>'Controller@handleGet']);
+    $router->post('{service}', ['uses' =>'Controller@handlePost']);
 });

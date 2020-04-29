@@ -25,4 +25,8 @@ $app = require __DIR__.'/../bootstrap/app.php';
 |
 */
 
+#var_dump(in_array('mod_rewrite', apache_get_modules()));
+#phpinfo();
+#die();
+
 $app->run();
